@@ -26,7 +26,7 @@ steps:
 # Pack the NuGet package
 - script: dotnet pack StringUtilities/StringUtilities.csproj --configuration $(buildConfiguration) --output $(Build.ArtifactStagingDirectory)
   displayName: 'Pack NuGet package'
-
+# Self trigger after change feed permission
 # Push the package to Azure Artifacts Feed
 - task: NuGetCommand@2
   inputs:
