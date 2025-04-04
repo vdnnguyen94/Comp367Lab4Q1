@@ -1,0 +1,30 @@
+# Visual Studio
+.vs/
+.vscode/
+*.user
+*.suo
+
+# Build results
+bin/
+obj/
+Debug/
+Release/
+
+# NuGet
+*.nupkg
+*.snupkg
+packages/
+.nuget/
+
+# Logs
+*.log
+
+# Rider
+.idea/
+
+# OS Files
+.DS_Store
+Thumbs.db
+
+# ASP.NET
+Properties/launchSettings.json

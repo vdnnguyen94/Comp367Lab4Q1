@@ -1,0 +1,12 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<TargetFramework>net8.0</TargetFramework>
+		<PackageId>StringUtilities</PackageId>
+		<Version>1.0.0</Version>
+		<Authors>Van Nguyen</Authors>
+		<Company>COMP367</Company>
+		<Description>A string extension method that checks if the string starts with uppercase.</Description>
+	</PropertyGroup>
+
+</Project>
