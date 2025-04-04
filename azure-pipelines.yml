@@ -32,6 +32,6 @@ steps:
   inputs:
     command: 'push'
     packagesToPush: '$(Build.ArtifactStagingDirectory)/*.nupkg'
-    publishVstsFeed: 'VanConsoleApp'  # 
+    publishVstsFeed: 'vnguy173/VanConsoleApp'  # 
     allowPackageConflicts: true
   displayName: 'Push package to Azure Artifacts'
