@@ -1,0 +1,37 @@
+trigger:
+- main
+
+pool:
+  name: Default  # Your self-hosted agent pool
+
+variables:
+  buildConfiguration: 'Release'
+
+steps:
+# Use .NET 8 SDK (make sure it's installed on your self-hosted agent)
+- task: UseDotNet@2
+  inputs:
+    packageType: 'sdk'
+    version: '8.0.400' 
+  displayName: 'Use .NET 8.0.400 SDK'
+
+# Restore NuGet packages
+- script: dotnet restore StringUtilities/StringUtilities.csproj
+  displayName: 'Restore packages'
+
+# Build the project
+- script: dotnet build StringUtilities/StringUtilities.csproj --configuration $(buildConfiguration)
+  displayName: 'Build project'
+
+# Pack the NuGet package
+- script: dotnet pack StringUtilities/StringUtilities.csproj --configuration $(buildConfiguration) --output $(Build.ArtifactStagingDirectory)
+  displayName: 'Pack NuGet package'
+
+# Push the package to Azure Artifacts Feed
+- task: NuGetCommand@2
+  inputs:
+    command: 'push'
+    packagesToPush: '$(Build.ArtifactStagingDirectory)/*.nupkg'
+    publishVstsFeed: 'VanConsoleApp'  # 
+    allowPackageConflicts: true
+  displayName: 'Push package to Azure Artifacts'
