@@ -32,7 +32,7 @@ steps:
   inputs:
     command: 'push'
     packagesToPush: '$(Build.ArtifactStagingDirectory)/*.nupkg'
-    feedPublish: b2832a5d-e84b-4c65-903e-f328cb4ca579 
-    #publishVstsFeed: 'vnguy173/VanConsoleApp'  # 
+    #feedPublish: b2832a5d-e84b-4c65-903e-f328cb4ca579 
+    publishVstsFeed: 'vnguy173/Comp367Lab4Question1/VanConsoleApp'
     allowPackageConflicts: true
   displayName: 'Push package to Azure Artifacts'
